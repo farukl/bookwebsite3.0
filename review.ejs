@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title><%= review.title %> - Kitap İncelemesi</title>
+ <link rel="stylesheet" href="styles.css">
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+ <div>
+ <div class="wave"></div>
+ <div class="wave"></div>
+ <div class="wave"></div>
+ </div>
+ <nav>
+ <ul>
+ <li><a href="/">Ana Sayfa</a></li>
+ <li><a href="/form.html">İnceleme Yaz</a></li>
+ </ul>
+ </nav>
+ <div class="full-review" id="fullReview">
+ <img src="<%= review.fullImage || 'default-full-image.jpg' %>" alt="<%= review.title %>" onerror="this.onerror=null;this.src='default-full-image.jpg';">
+ <h2><%= review.title %></h2>
+ <h3>yazan <%= review.author %></h3>
+ <p><%= review.review %></p>
+ <div class="button-group">
+ <button onclick="editReview(<%= review.id %>)">Düzenle</button>
+ <button onclick="deleteReview(<%= review.id %>)">Sil</button>
+ </div>
+ <!-- Yorumlar Bölümü -->
+ <div class="comments-section">
+ <h3>Yorumlar</h3>
+<% if (comments && comments.length > 0) { %>
+ <div class="comments-list">
+<% comments.forEach(comment => { %>
+ <div class="comment">
+ <div class="comment-header">
+ <span class="comment-username"><%= comment.username %></span>
+ <span class="comment-date"><%= new Date(comment.date).toLocaleDateString() %></span>
+ </div>
+ <div class="rating-stars-display">
+<% for(let i = 1; i <= 5; i++) { %>
+<% if(i <= (comment.rating || 0)) { %>
+ <i class="fas fa-star"></i>
+<% } else { %>
+ <i class="far fa-star"></i>
+<% } %>
+<% } %>
+ </div>
+ <div class="comment-content">
+<%= comment.comment %>
+ </div>
+ </div>
+<% }); %>
+ </div>
+<% } else { %>
+ <p class="no-comments">Henüz yorum yok. İlk yorumu yapan siz olun!</p>
+<% } %>
+ <!-- Yorum Ekleme Formu - review.js tarafından doldurulacak -->
+ <div id="comment-form-container">
+ <!-- Bu alan review.js tarafından doldurulacak -->
+ <input type="hidden" name="reviewId" value="<%= review.id %>">
+ </div>
+ </div>
+ </div>
+ <script src="/scripts.js"></script>
+ <script src="/review.js"></script>
+</body>
+</html>

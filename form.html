@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>İnceleme Yaz</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="scripts.js" defer></script>
+</head>
+<body>
+    <div>
+        <div class="wave"></div>
+        <div class="wave"></div>
+        <div class="wave"></div>
+    </div>
+    <nav>
+        <ul>
+            <li><a href="index.html">Ana Sayfa</a></li>
+            <li><a href="form.html">İnceleme Yaz</a></li>
+        </ul>
+    </nav>
+    <form id="reviewForm">
+        <input type="hidden" id="reviewId" name="reviewId">
+        <label for="title">Kitap Adı:</label>
+        <input type="text" id="title" name="title" required>
+        <label for="author">Yazar Adı:</label>
+        <input type="text" id="author" name="author" required>
+        <label for="review">İnceleme:</label>
+        <textarea id="review" name="review" required></textarea>
+        <label for="cover">Kitap Kapağı Resmi Yükle (kart için):</label>
+        <input type="file" id="cover" name="cover" accept="image/*" required>
+        <label for="fullImage">Tam İnceleme Resmi Yükle:</label>
+        <input type="file" id="fullImage" name="fullImage" accept="image/*" required>
+        <button type="submit" id="submitButton">Gönder</button>
+        <button type="button" id="updateButton" style="display: none;">Güncelle</button>
+    </form>
+    <script src="scripts.js"></script>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giriş / Kayıt</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div>
+        <div class="wave"></div>
+        <div class="wave"></div>
+        <div class="wave"></div>
+    </div>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Ana Sayfa</a></li>
+            <li><a href="form.html">İnceleme Gönder</a></li>
+        </ul>
+    </nav>
+
+    <div class="auth-container">
+        <div class="auth-tabs">
+            <div class="auth-tab active" data-tab="login">Giriş</div>
+            <div class="auth-tab" data-tab="register">Kayıt</div>
+        </div>
+
+        <div class="auth-form active" id="login-form">
+            <h2>Giriş</h2>
+            <div class="form-group">
+                <label for="login-username">Kullanıcı Adı</label>
+                <input type="text" id="login-username" placeholder="Kullanıcı adınızı girin" required>
+            </div>
+            <div class="form-group">
+                <label for="login-password">Şifre</label>
+                <input type="password" id="login-password" placeholder="Şifrenizi girin" required>
+            </div>
+            <button type="button" id="login-button">Giriş Yap</button>
+            <div class="error-message" id="login-error"></div>
+        </div>
+
+        <div class="auth-form" id="register-form">
+            <h2>Kayıt</h2>
+            <div class="form-group">
+                <label for="register-username">Kullanıcı Adı</label>
+                <input type="text" id="register-username" placeholder="Bir kullanıcı adı seçin" required>
+            </div>
+            <div class="form-group">
+                <label for="register-email">E-posta</label>
+                <input type="email" id="register-email" placeholder="E-posta adresinizi girin" required>
+            </div>
+            <div class="form-group">
+                <label for="register-password">Şifre</label>
+                <input type="password" id="register-password" placeholder="Bir şifre seçin" required>
+            </div>
+            <div class="form-group">
+                <label for="register-confirm-password">Şifre Onayı</label>
+                <input type="password" id="register-confirm-password" placeholder="Şifrenizi onaylayın" required>
+            </div>
+            <button type="button" id="register-button">Kayıt Ol</button>
+            <div class="error-message" id="register-error"></div>
+        </div>
+    </div>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
